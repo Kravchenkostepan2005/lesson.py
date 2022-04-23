@@ -1,3 +1,21 @@
+#1
+import random
+
+def square_num(nums):
+    for i in nums:
+        yield i * i
+
+nums = square_num([i * i for i in range(0, 100000, 3)])
+print(nums)
+
+f = open("abc21.txt", "w")
+for i in nums:
+    f.write(str(i * i) + '\n')
+f.close()
+
+
+
+def square_num(nums):
     for i in nums:
         yield i * i
 
@@ -35,12 +53,12 @@ def randomizer(a):
 #3
 def generator(start, end, step):
     list_of_values = []
-    i = start / step
+    i = start - step
     while start - step <= i <= end:
-        i *= step
+        i += step
         list_of_values.append(i)
         print(i)
-generator(2, 128, 4)
+generator(2, 12, 4)
 
 #4
 def password():
