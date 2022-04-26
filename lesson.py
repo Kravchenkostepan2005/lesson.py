@@ -41,15 +41,15 @@ for i in nums:
 f.close()
 
 #2
-def randomizer(a):
-    a = random.randint(0, 100)
-    b = random.randint(0, 100)
-    for i in range(0, 100):
-        if b == a:
-            print(a)
+a = random.randint(0, 100)
+b = random.randint(0, 100)
+def randomizer(b):
+    if b == a:
+        for i in range(0, 100):
+            print(b)
             break
     yield a
-
+    
 #3
 def generator(start, end, step):
     list_of_values = []
@@ -58,12 +58,24 @@ def generator(start, end, step):
         i += step
         list_of_values.append(i)
         print(i)
+    if end < start and step > 0:
+        return None
+    if end > start and step < 0:
+        return None
 generator(2, 12, 4)
-
 #4
 def password():
-    password = random.choice('1234567890abcdefghigklmnopqrstuvyxwzABCDEFGHIGKLMNOPQRSTUVYXWZ$#%^&*!@')
-    password + str(random.randint(0, 9))
-    password_list = [1, 2, 3, 4, "f", "j", "F", "L", "D", "#", "$"]
-
+    chars = '1234567890abcdefghigklmnopqrstuvyxwzABCDEFGHIGKLMNOPQRSTUVYXWZ$#%^&*!@'
+    length = input("Password length: " + "\n")
+    length = int(length)
+    for i in range(1000):
+        password = ''
+        for i in range(length):
+            password += random.choice(chars)
+    lower_letter = False
+    digit = False
+    capital_letter = False
+    symbol = False
+    if lower_letter and digit and capital_letter and symbol:
+        password += str(random.randint(0, 9))
     yield password
