@@ -62,7 +62,11 @@ def generator(start, end, step):
         return None
     if end > start and step < 0:
         return None
-generator(2, 12, 4)
+    while start - step >= i >= end:
+        i += step
+        list_of_values.append(i)
+        print(i)
+generator(10, -10, -3)
 #4
 def password():
     chars = '1234567890abcdefghigklmnopqrstuvyxwzABCDEFGHIGKLMNOPQRSTUVYXWZ$#%^&*!@'
